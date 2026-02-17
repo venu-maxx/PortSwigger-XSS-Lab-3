@@ -152,12 +152,6 @@ Figure 2: JavaScript alert(1) pops up on page load due to DOM XSS.
 
 
 
-![Lab Solved Congratulations]()
-
-Figure 3: PortSwigger Academy confirmation – "Congratulations, you solved the lab!"
-
-
-
 Exploitation Explanation:
 
 location.search (source) → document.write() (sink). Data from query string flows unsafely into HTML attribute (src). By injecting "> we close the attribute and tag, then add an element with an event handler (onload, onerror) to execute JS. document.write runs during page load, making this DOM-based (no server reflection needed). No CSP or encoding prevents execution.
